@@ -707,7 +707,7 @@ div.artwall div.logo {
   }
 }
 div.artwall section.works {
-  background-image: url("img/footer_background.png");
+  background-image: url("../img/footer_background.png");
   background-size: cover;
   margin-top: 168px;
 }
