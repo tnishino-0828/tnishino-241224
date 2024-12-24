@@ -1,0 +1,1355 @@
+@charset "UTF-8";
+/* bodyのデフォルトを定義 */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.8;
+  font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", Meiryo, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  font-feature-settings: "palt";
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* marginとpaddingを削除 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* pが連続したら段落を空ける */
+p + p {
+  margin-top: 1em;
+}
+
+/* list-styleを削除 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* imgとpictureタグの設定 */
+img,
+picture {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* 各ブラウザやOSの設定で動きの制限をしている場合、すべてのアニメーションとトランジションを削除 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* aタグのテキストカラーを親要素から継承と、ホバー時のアニメーション */
+a {
+  color: inherit;
+}
+@media screen and (min-width: 768px) {
+  a {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+}
+a:hover, a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+@media screen and (min-width: 768px) {
+  a:hover, a:focus {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  a:hover img {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+}
+
+@font-face {
+  font-family: "ShipporiMincho-Regular";
+  src: url("fonts/ShipporiMincho-Regular.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ShipporiMincho-SemiBold";
+  src: url("fonts/ShipporiMincho-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Amiri-Regular";
+  src: url("fonts/Amiri-Regular.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NotoSansJP-Medium";
+  src: url("fonts/NotoSansJP-Medium.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Lato-Regular";
+  src: url("fonts/Lato-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  margin-bottom: 50px;
+}
+@media (min-width: 768px) {
+  body {
+    margin-bottom: initial;
+  }
+}
+
+main {
+  background-color: #EDEFF0;
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+header div.headerin {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px;
+}
+@media (min-width: 768px) {
+  header div.headerin {
+    padding: initial;
+  }
+}
+@media (min-width: 768px) {
+  header div.headerin div.logo {
+    padding: 20px 0 0 40px;
+  }
+}
+header div.headerin div.logo a img {
+  width: 62px;
+}
+@media (min-width: 768px) {
+  header div.headerin div.logo a img {
+    width: 130px;
+  }
+}
+header div.headerin div.mess {
+  display: none;
+}
+@media (min-width: 768px) {
+  header div.headerin div.mess {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: #FFFFFF;
+    position: absolute;
+    right: 0;
+    padding: 24px 98px 24px 29px;
+  }
+}
+@media (min-width: 768px) and (min-width: 768px) {
+  header div.headerin div.mess {
+    gap: 30px;
+  }
+}
+header div.headerin div.mess div.item a {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+  line-height: 67px;
+  line-height: 38px;
+  font-family: "NotoSansJP-Medium";
+}
+@media (min-width: 768px) {
+  header div.headerin div.mess div.item a {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+}
+header div.headerin div.button {
+  position: fixed;
+  right: 16px;
+  top: 12px;
+  background-image: url("../img/menu_open_btn.png");
+  background-size: 100px;
+  width: 61px;
+  height: 61px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+header div.headerin div.button button {
+  border: none;
+  background: none;
+}
+header div.headerin div.button::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  width: 61px;
+  height: 61px;
+  mix-blend-mode: multiply;
+  z-index: -1;
+  box-shadow: 0px 0px 0px 0.5;
+}
+header div.headerin div.button:hover {
+  cursor: pointer;
+}
+
+div.fix_link {
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  div.fix_link {
+    display: none;
+  }
+}
+div.fix_link div.lists {
+  display: flex;
+}
+div.fix_link div.lists div.item {
+  flex: 1;
+}
+div.fix_link div.lists div.item a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  padding: 10px 4px;
+}
+div.fix_link div.lists div.item a div.icon {
+  width: 24px;
+}
+div.fix_link div.lists div.item a div.icon img {
+  vertical-align: middle;
+}
+div.fix_link div.lists div.item a span.name {
+  font-size: 15px;
+  letter-spacing: 0;
+}
+div.fix_link div.lists div.item:nth-child(1) a {
+  background-color: #fff;
+  border: 2px #224C71 solid;
+}
+div.fix_link div.lists div.item:nth-child(2) a {
+  background-color: #224C71;
+}
+div.fix_link div.lists div.item:nth-child(2) a span.name {
+  color: #FFFFFF;
+}
+
+div.keyvisual {
+  position: relative;
+}
+div.keyvisual img {
+  width: 100%;
+  height: 278px;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  div.keyvisual img {
+    height: auto;
+  }
+}
+div.keyvisual div.title {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  width: 100%;
+  text-align: center;
+}
+div.keyvisual div.title h1 {
+  font-size: 28px;
+  font-family: "ShipporiMincho-Regular", serif;
+  color: #FFFFFF;
+}
+@media (min-width: 768px) {
+  div.keyvisual div.title h1 {
+    font-size: 38px;
+  }
+}
+div.keyvisual div.title h1::after {
+  position: absolute;
+  content: "";
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #fff;
+  width: 24px;
+  height: 1px;
+}
+div.keyvisual div.decor {
+  font-size: 75px;
+  color: #fff;
+  font-weight: 400;
+  font-family: "Amiri", serif;
+  letter-spacing: 10px;
+  line-height: 72px;
+  pointer-events: none;
+  opacity: 0.1;
+  position: absolute;
+  left: 50%;
+  bottom: -16px;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  div.keyvisual div.decor {
+    font-size: 100px;
+  }
+}
+
+div.flow div.breadcrumbs {
+  margin-bottom: initial;
+  padding: 0 20px;
+}
+div.flow div.breadcrumbs div.inner {
+  padding: 8px 0 0;
+}
+div.flow div.breadcrumbs div.inner span.name {
+  font-size: 12px;
+  letter-spacing: 3px;
+  line-height: 36px;
+  line-height: 18px;
+}
+
+footer {
+  background-image: url("../img/footer_background.png");
+  content: "";
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+footer div.pagetop {
+  position: absolute;
+  content: "";
+  width: 60px;
+  height: 60px;
+  right: 40px;
+  top: -30px;
+}
+footer div.pagetop a img {
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+}
+footer div.menubox {
+  padding-top: 100px;
+}
+footer div.menubox nav.footerin {
+  margin-left: 40px;
+}
+@media (min-width: 768px) {
+  footer div.menubox nav.footerin {
+    margin-left: initial;
+  }
+}
+@media (min-width: 768px) {
+  footer div.menubox nav.footerin ul.lists {
+    display: flex;
+    gap: 24px;
+  }
+}
+@media (min-width: 768px) {
+  footer div.menubox nav.footerin ul.lists li {
+    flex: 1;
+  }
+}
+footer div.menubox nav.footerin ul.lists li a {
+  letter-spacing: 1.28px;
+  line-height: 36px;
+  line-height: 20px;
+  font-family: "Lato-Regular";
+  color: #FFFFFF;
+  position: relative;
+}
+footer div.menubox nav.footerin ul.lists li a::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -12px;
+  background: #fff;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+footer div.menubox nav.footerin ul.lists li ul.sub {
+  margin-top: 8px;
+}
+footer div.menubox nav.footerin ul.lists li ul.sub li a {
+  position: initial;
+  font-size: 13px;
+  letter-spacing: 1.04px;
+  line-height: 26px;
+  color: #B0B5C4;
+  display: block;
+}
+footer div.menubox nav.footerin ul.lists li ul.sub li + li {
+  margin-top: initial;
+}
+footer div.menubox nav.footerin ul.lists li + li {
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  footer div.menubox nav.footerin ul.lists li + li {
+    margin-top: initial;
+  }
+}
+footer div.menubox div.address {
+  position: relative;
+  margin-top: 54px;
+  padding: 0 10px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.address {
+    padding: initial;
+  }
+}
+footer div.menubox div.address div.title {
+  font-weight: bold;
+  letter-spacing: 1.12px;
+  line-height: 36px;
+  font-family: "Lato-Regular";
+  color: #FFFFFF;
+  padding-top: 30px;
+}
+footer div.menubox div.address ul.shop_lists {
+  margin-top: 18px;
+  margin-left: 10px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.address ul.shop_lists {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px 23px;
+  }
+}
+footer div.menubox div.address ul.shop_lists li div.name {
+  letter-spacing: 1.28px;
+  line-height: 36px;
+  line-height: 27px;
+  font-family: "Lato-Regular";
+  color: #FFFFFF;
+  position: relative;
+}
+footer div.menubox div.address ul.shop_lists li div.name::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -12px;
+  background: #fff;
+  border-radius: 50%;
+  width: 6px;
+  height: 6px;
+}
+footer div.menubox div.address ul.shop_lists li address {
+  position: initial;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  line-height: 26px;
+  color: #B0B5C4;
+  margin-top: 7px;
+  margin-bottom: 0;
+}
+footer div.menubox div.address ul.shop_lists li div.tel_sns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+footer div.menubox div.address ul.shop_lists li div.tel_sns div.tel {
+  font-size: 13px;
+  letter-spacing: 1.04px;
+  line-height: 26px;
+  color: #B0B5C4;
+}
+footer div.menubox div.address ul.shop_lists li div.tel_sns div.icon {
+  display: flex;
+  gap: 10px;
+}
+footer div.menubox div.address ul.shop_lists li div.tel_sns div.icon a {
+  width: 36px;
+  display: block;
+}
+footer div.menubox div.address ul.shop_lists li + li {
+  margin-top: 23px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.address ul.shop_lists li + li {
+    margin-top: initial;
+  }
+}
+footer div.menubox div.address::before {
+  position: absolute;
+  content: "";
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.1;
+}
+footer div.menubox div.banner {
+  margin-top: 64px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.banner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px 24px;
+  }
+}
+footer div.menubox div.banner div.item {
+  text-align: center;
+}
+footer div.menubox div.banner div.item + .item {
+  margin-top: 24px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.banner div.item + .item {
+    margin-top: initial;
+  }
+}
+footer div.menubox div.company_logo {
+  margin-top: 25px;
+  padding: 0 30px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.company_logo {
+    display: flex;
+    justify-items: flex-start;
+    margin-top: 54px;
+    padding: initial;
+  }
+}
+footer div.menubox div.company_logo div.lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 42px;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.company_logo div.lists {
+    flex-wrap: initial;
+    justify-content: initial;
+    align-items: center;
+  }
+}
+footer div.menubox div.company_logo div.lists div.item {
+  width: 40%;
+}
+@media (min-width: 768px) {
+  footer div.menubox div.company_logo div.lists div.item {
+    width: 15%;
+  }
+}
+footer div.menubox div.company_logo div.lists div.item img {
+  width: 100%;
+}
+footer div.menubox div.company_logo span {
+  letter-spacing: 0.64px;
+  line-height: 32px;
+  color: #FFFFFF;
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  footer div.menubox.container {
+    width: 1200px;
+  }
+}
+footer div.copyright {
+  position: relative;
+  margin-top: 20px;
+  padding: 0 20px 20px;
+}
+@media (min-width: 768px) {
+  footer div.copyright {
+    padding: 20px 0;
+  }
+}
+@media (min-width: 768px) {
+  footer div.copyright div.container {
+    width: 1200px;
+  }
+}
+footer div.copyright div.container div.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+}
+@media (min-width: 768px) {
+  footer div.copyright div.container div.detail {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}
+footer div.copyright div.container div.detail div.text {
+  font-size: 12px;
+  letter-spacing: 0.48px;
+  line-height: 32px;
+  line-height: 16px;
+  color: #B0B5C4;
+  order: 1;
+  text-align: center;
+}
+footer div.copyright div.container div.detail div.links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  position: relative;
+}
+footer div.copyright div.container div.detail div.links div.item a {
+  font-size: 12px;
+  letter-spacing: 0.48px;
+  line-height: 32px;
+  line-height: 24px;
+  color: #B0B5C4;
+  text-decoration: underline;
+}
+footer div.copyright div.container div.detail div.links::before {
+  position: absolute;
+  content: "";
+  background-color: #B0B5C4;
+  width: 15px;
+  height: 1px;
+  transform: rotate(-75deg);
+  left: 55%;
+  bottom: 50%;
+}
+footer div.copyright::before {
+  position: absolute;
+  content: "";
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.1;
+}
+
+div.artwall {
+  background-color: #fff;
+  margin-top: 54px;
+}
+@media (min-width: 768px) {
+  div.artwall {
+    margin-top: 108px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall {
+    margin-top: 81px;
+  }
+}
+div.artwall div.logo {
+  padding-top: 26px;
+}
+@media (min-width: 768px) {
+  div.artwall div.logo {
+    text-align: center;
+    padding-top: 52px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall div.logo {
+    padding-top: 39px;
+  }
+}
+div.artwall section.works {
+  background-image: url("img/footer_background.png");
+  background-size: cover;
+  margin-top: 168px;
+}
+@media (min-width: 768px) {
+  div.artwall section.works {
+    margin-top: 450px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.works {
+    margin-top: 350px;
+  }
+}
+div.artwall section.works div.container {
+  position: relative;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container {
+    width: 1000px;
+  }
+}
+div.artwall section.works div.container div.banner {
+  position: absolute;
+  content: "";
+  top: -125px;
+  left: 50%;
+  width: 90%;
+  transform: translateX(-50%);
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.banner {
+    top: -350px;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.works div.container div.banner {
+    top: -280px;
+  }
+}
+div.artwall section.works div.container div.banner div.catch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.banner div.catch {
+    gap: 22px;
+  }
+}
+div.artwall section.works div.container div.banner div.catch img.left {
+  width: 25px;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.banner div.catch img.left {
+    width: initial;
+  }
+}
+div.artwall section.works div.container div.banner div.catch span {
+  font-weight: 500;
+  color: #020F34;
+  font-family: "ShipporiMincho-Regular", serif;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.banner div.catch span {
+    font-size: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.works div.container div.banner div.catch span {
+    font-size: 18px;
+  }
+}
+div.artwall section.works div.container div.banner div.catch img.right {
+  width: 25px;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.banner div.catch img.right {
+    width: initial;
+  }
+}
+div.artwall section.works div.container div.banner div.image {
+  margin-top: 24px;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.banner div.image {
+    margin-top: 48px;
+  }
+}
+div.artwall section.works div.container div.banner div.image img {
+  width: 100%;
+}
+div.artwall section.works div.container div.silde {
+  padding-top: 150px;
+  padding-bottom: 79px;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.silde {
+    position: relative;
+    padding-top: 300px;
+    padding-bottom: 158px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.works div.container div.silde {
+    padding-top: 250px;
+    padding-bottom: 118px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.artwall section.works div.container div.silde {
+    padding-bottom: 118px;
+  }
+}
+div.artwall section.works div.container div.silde div.motto {
+  display: none;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.silde div.motto {
+    display: block;
+    font-size: 150px;
+    letter-spacing: 7.5px;
+    line-height: 74px;
+    color: #fff;
+    font-family: "Amiri";
+    opacity: 0.05;
+    writing-mode: vertical-rl;
+    position: absolute;
+    content: "";
+    left: -125px;
+    top: 28%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.works div.container div.silde div.motto {
+    display: none;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.artwall section.works div.container div.silde div.motto {
+    display: none;
+  }
+}
+div.artwall section.works div.container div.silde div.title {
+  text-align: center;
+}
+div.artwall section.works div.container div.silde div.title span.english {
+  font-size: 13px;
+  letter-spacing: 1.65px;
+  line-height: 72px;
+  line-height: 18px;
+  color: #fff;
+  font-family: "Amiri";
+  position: relative;
+}
+div.artwall section.works div.container div.silde div.title span.english::before {
+  position: absolute;
+  content: "";
+  bottom: -4px;
+  left: 60%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #FADC78;
+  width: 10px;
+  height: 1px;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.silde div.title span.english::before {
+    bottom: -8px;
+    left: 74%;
+    width: 20px;
+  }
+}
+div.artwall section.works div.container div.silde div.title span.english::after {
+  position: absolute;
+  content: "";
+  bottom: -4px;
+  left: 40%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #FFFFFF;
+  width: 10px;
+  height: 1px;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.silde div.title span.english::after {
+    bottom: -8px;
+    left: 26%;
+    width: 20px;
+  }
+}
+div.artwall section.works div.container div.silde div.title h2 {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  line-height: 72px;
+  line-height: 36px;
+  color: #fff;
+  font-family: "ShipporiMincho-Regular", serif;
+  margin-top: 4px;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.silde div.title h2 {
+    font-size: 26px;
+    letter-spacing: 3.9px;
+    line-height: 72px;
+    margin-top: initial;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.works div.container div.silde div.title h2 {
+    font-size: 23px;
+  }
+}
+div.artwall section.works div.container div.silde div.gallery {
+  margin-top: 28px;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.silde div.gallery {
+    margin-top: 56px;
+  }
+}
+div.artwall section.feature {
+  background-color: #EDEFF0;
+  padding-top: 60px;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature {
+    padding-top: 123px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.feature {
+    padding-top: 93px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.artwall section.feature {
+    padding-top: 93px;
+  }
+}
+div.artwall section.feature div.title {
+  text-align: center;
+}
+div.artwall section.feature div.title span.english {
+  font-size: 13px;
+  letter-spacing: 1.65px;
+  line-height: 18px;
+  font-family: "Amiri";
+  position: relative;
+}
+div.artwall section.feature div.title span.english::before {
+  position: absolute;
+  content: "";
+  bottom: -4px;
+  left: 60%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #688F6A;
+  width: 10px;
+  height: 1px;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.title span.english::before {
+    bottom: -8px;
+    left: 65%;
+    width: 20px;
+  }
+}
+div.artwall section.feature div.title span.english::after {
+  position: absolute;
+  content: "";
+  bottom: -4px;
+  left: 40%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #576387;
+  width: 10px;
+  height: 1px;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.title span.english::after {
+    bottom: -8px;
+    left: 25%;
+    width: 20px;
+  }
+}
+div.artwall section.feature div.title h2 {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  line-height: 72px;
+  line-height: 32px;
+  font-family: "ShipporiMincho-Regular", serif;
+  margin-top: 4px;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.title h2 {
+    font-size: 26px;
+    letter-spacing: 3.9px;
+    line-height: 72px;
+    margin-top: initial;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.feature div.title h2 {
+    font-size: 23px;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.title.container {
+    width: 1000px;
+  }
+}
+div.artwall section.feature div.lists {
+  margin-top: 50px;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists {
+    margin-top: 170px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.feature div.lists {
+    margin-top: 85px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.artwall section.feature div.lists {
+    margin-top: 85px;
+  }
+}
+div.artwall section.feature div.lists div.item {
+  background-color: #ffffff;
+  padding: 32px 0 80px;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item {
+    background-color: unset;
+    position: relative;
+    padding: 69px 0 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.feature div.lists div.item {
+    background-color: #fff;
+    padding: 48px 0 120px;
+  }
+}
+div.artwall section.feature div.lists div.item div.container div.block {
+  position: relative;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item div.container div.block {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.feature div.lists div.item div.container div.block {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item div.container div.block div.image {
+    flex: 1;
+  }
+}
+div.artwall section.feature div.lists div.item div.container div.block div.image img {
+  width: 100%;
+}
+div.artwall section.feature div.lists div.item div.container div.block div.box {
+  margin-top: 16px;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item div.container div.block div.box {
+    flex: 1;
+    margin-top: initial;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.feature div.lists div.item div.container div.block div.box {
+    margin-top: 24px;
+  }
+}
+div.artwall section.feature div.lists div.item div.container div.block div.box dl.text {
+  position: relative;
+  z-index: 1;
+}
+div.artwall section.feature div.lists div.item div.container div.block div.box dl.text dt h3 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 3.6px;
+  line-height: 32px;
+  font-family: "ShipporiMincho-Regular", serif;
+  position: relative;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item div.container div.block div.box dl.text dt h3 {
+    font-size: 28px;
+    letter-spacing: 4.2px;
+    line-height: 48px;
+  }
+}
+div.artwall section.feature div.lists div.item div.container div.block div.box dl.text dt h3::after {
+  position: absolute;
+  content: "";
+  bottom: -10px;
+  left: 0%;
+  border-bottom: 1px solid #576387;
+  width: 45px;
+  height: 1px;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item div.container div.block div.box dl.text dt h3::after {
+    bottom: -16px;
+  }
+}
+div.artwall section.feature div.lists div.item div.container div.block div.box dl.text dd {
+  font-weight: 500;
+  letter-spacing: 2.1px;
+  line-height: 26px;
+  font-family: "ShipporiMincho-Regular", serif;
+  margin-top: 24px;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item div.container div.block div.box dl.text dd {
+    font-size: 15px;
+    letter-spacing: 2.25px;
+    line-height: 34px;
+    margin-top: 62px;
+  }
+}
+div.artwall section.feature div.lists div.item div.container div.block div.box dl.text dd br {
+  display: none;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item div.container div.block div.box dl.text dd br {
+    display: block;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.feature div.lists div.item div.container div.block div.box dl.text dd br {
+    display: none;
+  }
+}
+div.artwall section.feature div.lists div.item div.container div.block div.number {
+  font-size: 85px;
+  font-weight: 500;
+  letter-spacing: -7px;
+  line-height: 1;
+  color: #EDEFF0;
+  font-family: "Amiri";
+  position: absolute;
+  right: 0;
+  bottom: -100px;
+  z-index: 0;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item div.container div.block div.number {
+    font-size: 170px;
+    line-height: 0.5;
+    right: 52%;
+    bottom: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.feature div.lists div.item div.container div.block div.number {
+    right: 0;
+    bottom: -125px;
+  }
+}
+div.artwall section.feature div.lists div.item + .item {
+  margin-top: 30px;
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item + .item {
+    margin-top: 60px;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item:nth-child(odd) div.container div.block {
+    flex-direction: row-reverse;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item:nth-child(even) div.container div.block {
+    position: relative;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item:nth-child(even) div.container div.block div.box {
+    position: relative;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item:nth-child(even) div.container div.block div.box dl.text {
+    position: absolute;
+    content: "";
+    left: 20%;
+    z-index: 1;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.feature div.lists div.item:nth-child(even) div.container div.block div.box dl.text {
+    position: relative;
+    left: unset;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.artwall section.feature div.lists div.item:nth-child(even) div.container div.block div.box dl.text {
+    position: relative;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item:nth-child(even) div.container div.block div.number {
+    right: 35%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.feature div.lists div.item:nth-child(even) div.container div.block div.number {
+    right: 0;
+  }
+}
+@media (min-width: 992px) and (max-width: 1024px) {
+  div.artwall section.feature div.lists div.item:nth-child(even) div.container div.block div.number {
+    right: 30%;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item:nth-child(even)::before {
+    left: unset;
+    right: 0;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall section.feature div.lists div.item::before {
+    position: absolute;
+    content: "";
+    background-color: #fff;
+    width: 75%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall section.feature div.lists div.item::before {
+    background-color: unset;
+  }
+}
+div.artwall div.links {
+  background-color: #EDEFF0;
+  padding-top: 60px;
+  padding-bottom: 82px;
+}
+@media (min-width: 768px) {
+  div.artwall div.links {
+    padding-top: 119px;
+    padding-bottom: 164px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  div.artwall div.links {
+    padding-top: 90px;
+    padding-bottom: 123px;
+  }
+}
+div.artwall div.links a {
+  background-color: #020F34;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  border-radius: 5px;
+  position: relative;
+  padding: 10px;
+}
+@media (min-width: 768px) {
+  div.artwall div.links a {
+    gap: 20px;
+    width: 500px;
+    margin: 0 auto;
+    padding: 16px 32px 16px 0;
+  }
+}
+div.artwall div.links a div.logo {
+  padding-top: initial;
+}
+div.artwall div.links a div.logo img {
+  width: 50px;
+}
+@media (min-width: 768px) {
+  div.artwall div.links a div.logo img {
+    width: initial;
+  }
+}
+div.artwall div.links a div.text div.channel {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 3.3px;
+  line-height: 36px;
+  font-family: "ShipporiMincho-Regular", serif;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #FFFFFF;
+}
+@media (min-width: 768px) {
+  div.artwall div.links a div.text div.channel {
+    font-size: 26px;
+    letter-spacing: 3.9px;
+  }
+}
+div.artwall div.links a div.text div.channel img {
+  width: 28px;
+}
+div.artwall div.links a div.text div.text {
+  font-size: 14px;
+  letter-spacing: 1.12px;
+  line-height: 18px;
+  color: #FFFFFF;
+}
+@media (min-width: 768px) {
+  div.artwall div.links a div.text div.text {
+    font-size: 15px;
+    letter-spacing: 1.2px;
+    line-height: 24px;
+    margin-top: 8px;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall div.links a div.text div.text br {
+    display: none;
+  }
+}
+div.artwall div.links a img.arrow {
+  position: absolute;
+  content: "";
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (min-width: 768px) {
+  div.artwall div.links a img.arrow {
+    right: 25px;
+  }
+}/*# sourceMappingURL=style.css.map */
