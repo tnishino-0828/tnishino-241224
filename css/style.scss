@@ -366,18 +366,17 @@ div.keyvisual {
     }
   }
 }
-div.flow {
-  div.breadcrumbs {
-    margin-bottom: initial;
-    padding: 0 20px;
-    div.inner {
-      padding: 8px 0 0;
-      span.name {
-        font-size: 12px;
-        letter-spacing: 3px;
-        line-height: 36px;
-        line-height: 18px;
-      }
+
+div.breadcrumbs {
+  margin-bottom: initial;
+  padding: 0 20px;
+  div.inner {
+    padding: 8px 0 0;
+    span.name {
+      font-size: 12px;
+      letter-spacing: 3px;
+      line-height: 36px;
+      line-height: 18px;
     }
   }
 }
@@ -881,11 +880,62 @@ div.artwall {
           }
         }
         div.gallery {
+          position: relative;
           margin-top: 28px;
           @media (min-width: 768px) {
             margin-top: 56px;
           }
-          img {}
+          div.slider {
+            div.swiper-wrapper {
+              div.swiper-slide {
+                img {
+                  width: 100%;
+                }
+              }
+            }
+          }
+          div.swiper-button-next, .swiper-button-prev {
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 50%;
+            top: 65%;
+            transform: translateY(-50%);
+            @media (min-width: 768px) {
+              width: 60px;
+              height: 60px;
+              top: 55%;
+            }
+            &::after {
+              width: 8px;
+              height: 12px;
+            }
+          }
+          div.swiper-button-next {
+            right: 0;
+            @media (min-width: 768px) {
+              right: -104px;
+            }
+            @media (min-width: 768px) {
+              right: -25px;
+            }
+        
+            &::after {
+              background-image: url('img/artwall_slide_arrow_right.webp');
+            }
+          }
+          div.swiper-button-prev {
+            left: 0;
+            @media (min-width: 768px) {
+              left: -104px;
+            }
+            @media (min-width: 768px) {
+              left: -25px;
+            }
+            &::after {
+              background-image: url('img/artwall_slide_arrow_left.webp');
+            }
+          }
         }
       }
     }
@@ -1134,6 +1184,7 @@ div.artwall {
                   }
                   @media (min-width: 992px) and (max-width: 1024px) {
                     position: relative;
+                    left: 8%;
                   }
                 }
               }

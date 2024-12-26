@@ -347,14 +347,14 @@ div.keyvisual div.decor {
   }
 }
 
-div.flow div.breadcrumbs {
+div.breadcrumbs {
   margin-bottom: initial;
   padding: 0 20px;
 }
-div.flow div.breadcrumbs div.inner {
+div.breadcrumbs div.inner {
   padding: 8px 0 0;
 }
-div.flow div.breadcrumbs div.inner span.name {
+div.breadcrumbs div.inner span.name {
   font-size: 12px;
   letter-spacing: 3px;
   line-height: 36px;
@@ -922,12 +922,67 @@ div.artwall section.works div.container div.silde div.title h2 {
   }
 }
 div.artwall section.works div.container div.silde div.gallery {
+  position: relative;
   margin-top: 28px;
 }
 @media (min-width: 768px) {
   div.artwall section.works div.container div.silde div.gallery {
     margin-top: 56px;
   }
+}
+div.artwall section.works div.container div.silde div.gallery div.slider div.swiper-wrapper div.swiper-slide img {
+  width: 100%;
+}
+div.artwall section.works div.container div.silde div.gallery div.swiper-button-next, div.artwall section.works div.container div.silde div.gallery .swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 65%;
+  transform: translateY(-50%);
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.silde div.gallery div.swiper-button-next, div.artwall section.works div.container div.silde div.gallery .swiper-button-prev {
+    width: 60px;
+    height: 60px;
+    top: 55%;
+  }
+}
+div.artwall section.works div.container div.silde div.gallery div.swiper-button-next::after, div.artwall section.works div.container div.silde div.gallery .swiper-button-prev::after {
+  width: 8px;
+  height: 12px;
+}
+div.artwall section.works div.container div.silde div.gallery div.swiper-button-next {
+  right: 0;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.silde div.gallery div.swiper-button-next {
+    right: -104px;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.silde div.gallery div.swiper-button-next {
+    right: -25px;
+  }
+}
+div.artwall section.works div.container div.silde div.gallery div.swiper-button-next::after {
+  background-image: url("img/artwall_slide_arrow_right.webp");
+}
+div.artwall section.works div.container div.silde div.gallery div.swiper-button-prev {
+  left: 0;
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.silde div.gallery div.swiper-button-prev {
+    left: -104px;
+  }
+}
+@media (min-width: 768px) {
+  div.artwall section.works div.container div.silde div.gallery div.swiper-button-prev {
+    left: -25px;
+  }
+}
+div.artwall section.works div.container div.silde div.gallery div.swiper-button-prev::after {
+  background-image: url("img/artwall_slide_arrow_left.webp");
 }
 div.artwall section.feature {
   background-color: #EDEFF0;
@@ -1217,6 +1272,7 @@ div.artwall section.feature div.lists div.item + .item {
 @media (min-width: 992px) and (max-width: 1024px) {
   div.artwall section.feature div.lists div.item:nth-child(even) div.container div.block div.box dl.text {
     position: relative;
+    left: 8%;
   }
 }
 @media (min-width: 768px) {
